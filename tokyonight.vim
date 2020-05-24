@@ -26,6 +26,7 @@ endif
 let s:gb = {}
 
 let s:gb.black        = ["#000000", 16]
+let s:gb.darker       = ["#16161e", 233]
 let s:gb.darkgrey     = ["#444b6a", 239]
 let s:gb.middlegrey   = ["#5a638c", 241]
 let s:gb.middlegrey2  = ["#646e9c", 242]
@@ -58,8 +59,32 @@ let s:gb.dark_bg      = ["#1a1b26", 234]
 let s:gb.dark_bg2     = ["#1e202e", 235]
 let s:gb.grey_fg      = ["#a9b1d6", 146]
 
+" BOLD
 let s:bold = 'bold,'
+
+if !exists('g:tokyonight_bold')
+  let g:tokyonight_italic=1
+endif
+
+if g:tokyonight_italic == 0
+  let s:bold = ''
+endif
+
+" ITALICS
 let s:italic = 'italic,'
+
+if !exists('g:tokyonight_italic')
+  if has('gui_running') || $TERM_ITALICS == 'true'
+    let g:tokyonight_italic=1
+  else
+    let g:tokyonight_italic=0
+  endif
+endif
+
+if g:tokyonight_italic == 0
+  let s:italic = ''
+endif
+
 let s:underline = 'underline,'
 let s:undercurl = 'undercurl,'
 let s:inverse = 'inverse,'
@@ -157,10 +182,12 @@ call s:HL('cssUrl', s:gb.yelloworange, s:none, s:underline)
 call s:HL('Directory', s:none) " Todo
 call s:HL('FoldColumn', s:none) " Todo
 call s:HL('Folded', s:none) " Todo
-call s:HL('PMenu', s:fg1, s:gb.darkgrey) " Todo
-call s:HL('PMenuSel', s:fg1, s:gb.middlegrey2) " Todo
+call s:HL('PMenu', s:fg1, s:gb.darker) " Todo
+call s:HL('PMenuSel', s:fg1, s:gb.middlegrey) " Todo
+call s:HL('PMenuSbar', s:none, s:gb.lightgrey)
+call s:HL('PMenuThumb', s:none, s:gb.bluegrey)
 call s:HL('ErrorMsg', s:gb.red, s:none, s:undercurl)
-call s:HL('Error', s:gb.red, s:none, s:undercurl)
+call s:HL('Error', s:gb.red, s:none, s:undercurl, s:gb.red)
 call s:HL('WarningMsg', s:gb.redorange, s:none, s:underline)
 call s:HL('VertSplit', s:gb.lightblue)
 call s:HL('Todo', s:gb.red, s:none, s:italic)
@@ -271,11 +298,22 @@ hi! link jsonKeyword TokyoBlue
 hi! link jsonString TokyoLightGreen
 hi! link jsonKeywordMatch TokyoGreyTurkis
 
+call s:HL('markdownH2', s:gb.lightturkis, s:none, s:bold)
+hi! link markdownH2Delimiter markdownH2
+call s:HL('markdownH3', s:gb.blue, s:none, s:bold)
+hi! link markdownH3Delimiter markdownH3
+call s:HL('markdownH4', s:gb.darkblue, s:none, s:bold)
+hi! link markdownH4Delimiter markdownH4
+call s:HL('markdownURL', s:gb.greenturkis, s:none, s:underline)
+hi! link markdownLinkText TokyoGreenTurkis
+call s:HL('markdownBold', s:none, s:none, s:bold)
+hi! link markdownCode TokyoGreyTurkis
+
 hi! link CocErrorSign TokyoRed
 hi! link CocWarningSign TokyoYellow
 hi! link CocInfoSign TokyoBlue
 hi! link CocHintSign TokyoYellow
-call s:HL('CocErrorHighlight', s:gb.red, s:none, s:undercurl)
+call s:HL('CocErrorHighlight', s:gb.red, s:none, s:undercurl, s:gb.red)
 call s:HL('CocWarningHighlight', s:gb.yellow, s:none, s:undercurl)
 call s:HL('CocInfoHighlight', s:none, s:none, s:underline)
 hi! link CocHintHighlight CocWarningHighlight
@@ -283,3 +321,18 @@ hi! link CocErrorLine TokyoRed
 hi! link CocWarningLine TokyoYellow
 hi! link CocInfoLine TokyoBlue
 hi! link CocHintLine TokyoYellow
+
+if !exists('g:rbpt_colorpairs')
+  let g:rbpt_colorpairs =
+    \ [
+      \ ['209', '#ff9e64'],
+      \ ['117', '#89ddff'],
+      \ ['221', '#ffdb69'],
+      \ ['149', '#9ece6a'],
+      \ ['68', '#3d59a1'],
+      \ ['210', '#f7768e']
+    \ ]
+endif
+
+" let g:rbpt_max = 6
+
