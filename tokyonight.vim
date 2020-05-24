@@ -127,6 +127,8 @@ call s:HL('TokyoGreyTurkis', s:gb.greyturkis)
 call s:HL('TokyoLighterGrey', s:gb.lightgrey2)
 call s:HL('TokyoYellow', s:gb.yellow)
 
+call s:HL('TokyoMiddlePurpleItalic', s:gb.middlepurple, s:none, s:italic)
+
 " -------------------
 "  Editor Settings
 " -------------------
@@ -147,12 +149,45 @@ hi! link vCursor Cursor
 hi! link iCursor Cursor
 hi! link lCursor Cursor
 
+hi! link SignColumn Normal
+
 call s:HL('LineNr', s:gb.darkgrey, s:none)
 call s:HL('Comment', s:gb.darkgrey, s:none, s:italic)
+call s:HL('cssUrl', s:gb.yelloworange, s:none, s:underline)
+call s:HL('Directory', s:none) " Todo
+call s:HL('FoldColumn', s:none) " Todo
+call s:HL('Folded', s:none) " Todo
+call s:HL('PMenu', s:fg1, s:gb.darkgrey) " Todo
+call s:HL('PMenuSel', s:fg1, s:gb.middlegrey2) " Todo
+call s:HL('ErrorMsg', s:gb.red, s:none, s:undercurl)
+call s:HL('Error', s:gb.red, s:none, s:undercurl)
+call s:HL('WarningMsg', s:gb.redorange, s:none, s:underline)
+call s:HL('VertSplit', s:gb.lightblue)
+call s:HL('Todo', s:gb.red, s:none, s:italic)
+call s:HL('Visual', s:none, s:gb.middlegrey)
+call s:HL('Search', s:none, s:gb.middlegrey, s:underline)
+call s:HL('InSearch', s:none, s:none, s:inverse)
+call s:HL('MatchParen', s:none, s:gb.middlegrey, s:inverse)
 
+hi! link String TokyoLightGreen
+hi! link Conceal Comment
+hi! link NonText Comment
 hi! link Identifier TokyoLighterGrey
 hi! link Function TokyoBlue
 hi! link Constant TokyoLightPurple
+hi! link Statement TokyoTurkis
+hi! link Noise TokyoGreyTurkis
+hi! link Title Normal
+hi! link Special TokyoGreyTurkis
+hi! link Type TokyoBlue
+hi! link PreProc TokyoLightPurple
+hi! link Quote TokyoGreyTurkis
+hi! link Define TokyoLightPurple
+hi! link Conditional TokyoLightPurple
+hi! link Float TokyoOrange
+hi! link Number TokyoOrange
+hi! link Operator TokyoGreyTurkis
+
 
 hi! link htmlTag TokyoLila " < >
 hi! link htmlEndTag TokyoLila " </ >
@@ -164,7 +199,87 @@ hi! link htmlScriptTag TokyoLightGreen
 hi! link htmlTagN TokyoLightGreen
 hi! link htmlSpecialTagName TokyoLightGreen
 hi! link htmlString TokyoLightGreen
-hi! link Title Normal
 
-hi! link htmlComment TokyoYellow
+hi! link htmlComment Comment
 hi! link htmlCommentPart Comment
+
+hi! link cssStringQ TokyoLightGreen
+hi! link cssBraces TokyoYellow
+hi! link cssValueNumber TokyoOrange
+hi! link cssVendor cssProp
+hi! link cssAttrRegion TokyoLightPurple
+hi! link cssFontAttr TokyoOrange
+hi! link cssBackgroundAttr TokyoTurkis
+hi! link cssFunctionName TokyoTurkis
+
+hi! link javascriptBlock TokyoLightRed
+hi! link javascriptBraces TokyoGreenTurkis
+hi! link javascriptBrackets TokyoGreyTurkis
+hi! link javascriptClassName TokyoTurkis
+hi! link javascriptClassSuperName TokyoLightPurple
+hi! link javascriptExport TokyoLightBlue
+hi! link javascriptFuncKeyword TokyoMiddlePurpleItalic
+hi! link javascriptIdentifierName TokyoLighterGrey
+hi! link javascriptMethod TokyoBlue
+hi! link javascriptObjectLabel TokyoLighterGrey
+hi! link javascriptObjectLabelColon Noise
+hi! link javascriptObjectMethodName TokyoLightRed
+hi! link javascriptOperator TokyoGreyTurkis
+hi! link javascriptProperty TokyoLightBlue
+hi! link javascriptStringMethod TokyoLightRed
+hi! link javascriptVariable TokyoLighterGrey
+
+hi! link jsModuleName TokyoTurkis
+hi! link jsBuiltinValues TokyoOrange
+hi! link jsNew TokyoLightBlue
+hi! link jsImport TokyoGreyTurkis
+hi! link jsObjectKey TokyoGreenTurkis
+hi! link jsIdentifierProp TokyoGreyTurkis
+
+hi! link typescriptBOM TokyoTurkis
+hi! link typescriptBraces TokyoYellow
+hi! link typescriptParens TokyoYellow
+hi! link typescriptString TokyoLightGreen
+hi! link typescriptStringS TokyoLightGreen
+hi! link typescriptVariable TokyoMiddlePurpleItalic
+hi! link typescriptReserved TokyoLightPurple
+hi! link typescriptStorageClass TokyoMiddlePurpleItalic
+hi! link typescriptVariableDeclaration TokyoLightPurple
+hi! link typescriptObjectLabel TokyoGreenTurkis
+hi! link typescriptAssign TokyoGreyTurkis
+hi! link typescriptObjectColon TokyoGreyTurkis
+hi! link typescriptFuncKeyword TokyoLightPurple
+hi! link typescriptBlock TokyoTurkis
+hi! link typescriptDefault TokyoGreyTurkis
+call s:HL('typescriptStatementKeyword', s:gb.lightpurple, s:none, s:italic)
+hi! link typescriptFuncCallArg TokyoGreyTurkis
+hi! link typescriptDotNotation TokyoGreyTurkis
+hi! link typescriptOpSymbols TokyoGreyTurkis
+hi! link typescriptGlobalObjects TokyoTurkis
+
+hi! link jsxOpenPunct TokyoLila
+hi! link jsxClosePunct TokyoLila
+hi! link jsxCloseString TokyoLila
+hi! link jsxAttrib TokyoLightPurple
+hi! link jsxEqual TokyoGreyTurkis
+hi! link jsxTagName TokyoLightRed
+hi! link jsxComponentName TokyoLightRed
+hi! link jsxString TokyoLightGreen
+
+hi! link jsonBoolean TokyoOrange
+hi! link jsonKeyword TokyoBlue
+hi! link jsonString TokyoLightGreen
+hi! link jsonKeywordMatch TokyoGreyTurkis
+
+hi! link CocErrorSign TokyoRed
+hi! link CocWarningSign TokyoYellow
+hi! link CocInfoSign TokyoBlue
+hi! link CocHintSign TokyoYellow
+call s:HL('CocErrorHighlight', s:gb.red, s:none, s:undercurl)
+call s:HL('CocWarningHighlight', s:gb.yellow, s:none, s:undercurl)
+call s:HL('CocInfoHighlight', s:none, s:none, s:underline)
+hi! link CocHintHighlight CocWarningHighlight
+hi! link CocErrorLine TokyoRed
+hi! link CocWarningLine TokyoYellow
+hi! link CocInfoLine TokyoBlue
+hi! link CocHintLine TokyoYellow
