@@ -214,7 +214,7 @@ hi! link Conditional TokyoLightPurple
 hi! link Float TokyoOrange
 hi! link Number TokyoOrange
 hi! link Operator TokyoGreyTurkis
-
+hi! link Directory TokyoBlue
 
 hi! link htmlTag TokyoLila " < >
 hi! link htmlEndTag TokyoLila " </ >
